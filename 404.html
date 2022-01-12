@@ -3,18 +3,21 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Error 404 :(</title>
+    <title>Error 404 - Page Not Found</title>
 
     <script>
         window.onload = function () {
+            const repos = ["grails-plugins.github.io/grails-spring-security-core", "grails-plugins/grails-database-migration"];
             const destination = window.location.href;
-            if (window.location.href.includes("grails-plugins.github.io/grails-spring-security-core")) {
+            for (let i = 0; i < repos.length; i++) { 
+                if (window.location.href.includes(repos[i])) {
                 const redirectLocation = window.location.href.replace(
-                    "grails-plugins.github.io/grails-spring-security-core",
-                    "grails.github.io/grails-spring-security-core"
+                    "grails-plugins.github.io/",
+                    "grails.github.io/"
                 );
                 document.getElementById("body").innerHTML = "Redirecting to " + redirectLocation + " ...";
                 window.location.href = redirectLocation;
+            }   
             }
         }
     </script>
